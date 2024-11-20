@@ -3,22 +3,20 @@ import Square from './Square';
 import Lamp from './Lamp';
 
 const Grid = ({ rows, cols }) => {
-  // Track the state of squares
   const [gridState, setGridState] = useState(
     Array(rows)
       .fill(null)
       .map(() => Array(cols).fill(false))
   );
 
-  // Toggle the light for four squares around a lamp
   const toggleLamp = (row, col) => {
     const updatedGrid = gridState.map((r, i) =>
       r.map((isLit, j) => {
         if (
-          (i === row && j === col) || // Top-left
-          (i === row + 1 && j === col) || // Bottom-left
-          (i === row && j === col + 1) || // Top-right
-          (i === row + 1 && j === col + 1) // Bottom-right
+          (i === row && j === col) || 
+          (i === row + 1 && j === col) ||
+          (i === row && j === col + 1) || 
+          (i === row + 1 && j === col + 1) 
         ) {
           return !isLit;
         }
@@ -54,7 +52,6 @@ const Grid = ({ rows, cols }) => {
         ))
       )}
 
-      {/* Place lamps in between squares */}
       {Array.from({ length: rows - 1 }).map((_, rowIndex) =>
         Array.from({ length: cols - 1 }).map((_, colIndex) => (
           <Lamp
@@ -62,8 +59,8 @@ const Grid = ({ rows, cols }) => {
             toggleLamp={() => toggleLamp(rowIndex, colIndex)}
             style={{
               position: 'absolute',
-              top: `${(rowIndex + 1) * 80 - 15}px`, // Center lamp vertically
-              left: `${(colIndex + 1) * 80 - 15}px`, // Center lamp horizontally
+              top: `${(rowIndex + 1) * 80 - 15}px`, 
+              left: `${(colIndex + 1) * 80 - 15}px`, 
             }}
           />
         ))

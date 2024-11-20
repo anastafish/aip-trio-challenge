@@ -10,7 +10,7 @@ const Lamp = ({ toggleLamp, style }) => {
         border: '2px solid #999',
         cursor: 'pointer',
         boxShadow: '0 0 10px 2px yellow',
-        ...style, // Allow custom positioning
+        ...style, 
       }}
     />
   );

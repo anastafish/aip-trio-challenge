@@ -6,7 +6,7 @@ const Square = ({ isLit, style }) => {
         height: '80px',
         backgroundColor: isLit ? '#f9e076' : '#ccc',
         border: '1px solid #999',
-        ...style, // Allow custom positioning
+        ...style,
       }}
     />
   );
